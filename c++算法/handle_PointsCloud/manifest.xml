@@ -1,0 +1,12 @@
+<package>
+  <description brief="handlePointsCloud">
+     handlePointsCloud
+  </description>
+  <author>KaiyuWu</author>
+  <license> </license>
+  <depend package="roscpp"/>
+  <depend package="sensor_msgs"/>
+</package>
+
+
+

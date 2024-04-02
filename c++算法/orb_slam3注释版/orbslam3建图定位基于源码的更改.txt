@@ -1,0 +1,42 @@
+源码修改：
+保存地图：
+    1. System.cc文件中的void System::Shutdown() 函数，取消while循环等待线程结束部分代码，防止读取地图相关变量进行保存时出现访问冲突，导致segment fault的错误。
+    2. System.cc文件中的System构造函数中，在loadAtlas函数执行后需要改变Atlas中的mpCurrentMap变量，调用了自定义函数void  Atlas::ChangeCurrentMap(Map* pMap)。
+    3. Map.cc文件中的void Map::PreSave(std::set<GeometricCamera*> &spCams)函数，在遍历地图点时先创建临时set，把地图点赋值到临时set中然后遍历临时set中的地图点。
+    4. MapPoint.cc文件中的void MapPoint::PreSave(set<KeyFrame*>& spKF,set<MapPoint*>& spMP) 函数，在遍历地图点的观测时先创建临时map，把观测复制到临时map中然后遍历临时map中的观测。
+       定位：
+    1. ros_mono_inertial.cc文件中的main函数，增加了读取配置文件的代码，通过mbUseIMU参数的值决定是否使用imu。
+    2. Tracking.cc文件中Tracking类初始化中，读取配置文件的mbLoadMapAndLocalization项。若该项的值为1，设置系统跟踪初始状态为LOST、设置mbOnlyTracking变量值为true和设置当前地图为未初始化，设置为未初始化调用了自定义的函数void  Map::SetImuNotInitialized()。
+    3. Tracking.cc文件中的Track函数，在if(mState!=NO_IMAGES_YET)分支处增加条件mState!= LOST。
+    4. Tracking.cc文件bool Tracking::NeedNewKeyFrame()函数中的if(mbOnlyTracking)条件放到函数最前面。
+    5. Tracking.cc文件中的bool Tracking::TrackWithMotionModel()函数，该函数中的第一个else分支增加if分支，当使用定位模式时使用imu进行位姿预测。
+    6. Tracking.cc文件中，新增了PredictStateIMUFromLastFrame()函数，在TrackWithMotionModel()函数中预积分估计位姿时调用。
+    7. Tracking.cc文件中的Track函数，在更新mbVelocity后更新了新变量mImuVelocity。
+    8. 注释了optimizer.cc里面2835行的视觉边检测。
+
+修改配置文件：
+    1. 在Examples_old/ROS/ORB_SLAM3/目录下增加zed_mono_vectornav_imu_720x1280_mapping.yaml文件。
+    2. 在保存地图时，配置文件中System.mbLoadMapAndLocalization项置为0，注释System.LoadAtlasFrom File项，取消注释System.SaveAtlasTo File项。
+    3. 在加载地图进行定位时，配置文件中System.mbLoadMapAndLocalization项置为1，注释System.SaveAtlasToFile项，取消注释System.LoadAtlasFrom File项。
+编译:
+Cmakelist.txt文件修改：
+    1. 更改ORB_SLAM3 文件夹、ORB_SLAM3/Examples/ROS文件夹和ORB_SLAM3/Thirdparty/DBoW2文件夹中Cmakelist.txt文件中opencv库的版本统一改为4.2。
+    2. 更改build_ros.sh文件中cd Examples/ROS/ORB_SLAM3 为cd Examples_old/ROS/ORB_SLAM3。
+    3. 只编译ros_mono_inertial.cc文件，注释掉Examples_old/ROS/ORB_SLAM3/Cmakelist.txt文件中的其他模块包括。
+    4. 在Examples_old/ROS/ORB_SLAM3/Cmakelist.txt文件中的include_directories目录中加上${PROJECT_S OURCE_DIR}/../../../Thirdparty/Sophus
+    5. 更改build_ros.sh文件中cd Examples/ROS/ORB_SLAM3 为cd Examples_old/ROS/ORB_SLAM3。
+编译orbslam3相关源码：
+cd ORB_SLAM3
+chmod +x build.sh
+./build.sh
+编译ros相关源码：
+gedit ~/.bashrc
+export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:填PATH/ORB_SLAM3/Examples_old/ROS
+chmod +x build_ros.sh
+./build_ros.sh
+运行：
+rosrun ORB_SLAM3 Mono_Inertial /home/wky/myRosWorkspace/orbslam3/ORB_SLAM3/Vocabulary/ORBvoc. txt   /home/wky/myRosWorkspace/orbslam3/ORB_SLAM3/Examples_old/ROS/ORB_SLAM3/zed_mono_vectornav_imu_720x1280_mapping.yaml（根据配置文件位置修改）
+rosrun image_transport republish compressed in:=/zed/zed_node/left/image_rect_color out:=/camera/image_raw
+rosbag play basement_zedwrapper_with_zedimu_2024.bag
+
+

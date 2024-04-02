@@ -1,0 +1,5 @@
+#mode: 0(rpy to euler angel),1(euler angel to rpy)
+#92.2905646  -0.9723948  87.1996814
+mode: 0
+rpy: 1,2,3
+rotationMatrix:[-1,2,3,-1,2,3,-1,2,3]
