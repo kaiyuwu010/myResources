@@ -1,0 +1,20 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/home/wky/myRosWorkspace/vcar_hunter/devel/lib/python3/dist-packages",
+        "/home/wky/myRosWorkspace/lio-sam-WS/devel/lib/python3/dist-packages",
+        "/home/wky/myRosWorkspace/arm_compliant_control/devel/lib/python3/dist-packages",
+        "/home/wky/myRosWorkspace/vcar_xavier/devel/lib/python3/dist-packages",
+        "/home/wky/myRosWorkspace/cam_lidar_calibration_ws/devel/lib/python3/dist-packages",
+        "/home/wky/myRosWorkspace/vcar_scout/devel/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/home/wky/myRosWorkspace/vcar_hunter/devel/lib/python3/dist-packages",
+        "/home/wky/myRosWorkspace/lio-sam-WS/devel/lib/python3/dist-packages",
+        "/home/wky/myRosWorkspace/arm_compliant_control/devel/lib/python3/dist-packages",
+        "/home/wky/myRosWorkspace/vcar_xavier/devel/lib/python3/dist-packages",
+        "/home/wky/myRosWorkspace/cam_lidar_calibration_ws/devel/lib/python3/dist-packages",
+        "/home/wky/myRosWorkspace/vcar_scout/devel/lib/python3/dist-packages"
+    ]
+}

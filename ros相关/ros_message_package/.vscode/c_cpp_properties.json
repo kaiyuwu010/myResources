@@ -1,0 +1,55 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/opt/ros/noetic/include/**",
+        "/home/wky/myRosWorkspace/vcar_hunter/devel/include/**",
+        "/home/wky/myRosWorkspace/lio-sam-WS/devel/include/**",
+        "/home/wky/myRosWorkspace/vcar_xavier/devel/include/**",
+        "/home/wky/myRosWorkspace/arm_compliant_control/devel/include/**",
+        "/home/wky/myRosWorkspace/cam_lidar_calibration_ws/devel/include/**",
+        "/home/wky/myRosWorkspace/vcar_scout/devel/include/**",
+        "/home/wky/myRosWorkspace/arm_compliant_control/src/Compliant-Control-and-Application/control_algorithms/admittance/include/**",
+        "/home/wky/myRosWorkspace/vcar_hunter/src/vcar_hunter/lite6_arm_control/arm_planning/include/**",
+        "/home/wky/myRosWorkspace/vcar_scout/src/vcar_scout/mg400_ros/bringup/include/**",
+        "/home/wky/myRosWorkspace/cam_lidar_calibration_ws/src/cam_lidar_calibration/include/**",
+        "/home/wky/myRosWorkspace/arm_compliant_control/src/Compliant-Control-and-Application/robot_controllers/cartesian_position_controller/include/**",
+        "/home/wky/myRosWorkspace/arm_compliant_control/src/Compliant-Control-and-Application/robot_controllers/cartesian_velocity_controller/include/**",
+        "/home/wky/myRosWorkspace/arm_compliant_control/src/Compliant-Control-and-Application/control_strategy/include/**",
+        "/home/wky/myRosWorkspace/arm_compliant_control/src/Compliant-Control-and-Application/robots/universal_robot/Universal_Robots_ROS_Driver/controller_stopper/include/**",
+        "/home/wky/myRosWorkspace/vcar_scout/src/vcar_scout/formation/include/**",
+        "/home/wky/myRosWorkspace/vcar_hunter/src/vcar_hunter/hunter_ros/hunter_base/include/**",
+        "/home/wky/myRosWorkspace/vcar_xavier/src/vcar_xavier/Hybrid_A_Star-main/include/**",
+        "/home/wky/myRosWorkspace/arm_compliant_control/src/Compliant-Control-and-Application/control_algorithms/hybrid_position_force_control/include/**",
+        "/home/wky/myRosWorkspace/arm_compliant_control/src/Compliant-Control-and-Application/control_algorithms/impedance/include/**",
+        "/home/wky/myRosWorkspace/arm_compliant_control/src/Compliant-Control-and-Application/robot_controllers/joint_torque_controller/include/**",
+        "/home/wky/myRosWorkspace/vcar_hunter/src/vcar_hunter/LeGO-LOAM/LeGO-LOAM/include/**",
+        "/home/wky/myRosWorkspace/lio-sam-WS/src/LIO-SAM/include/**",
+        "/home/wky/myRosWorkspace/vcar_hunter/src/vcar_hunter/lite6_arm_control/octomap_mapping/octomap_server/include/**",
+        "/home/wky/myRosWorkspace/vcar_hunter/src/vcar_hunter/path_plan/planner/include/**",
+        "/home/wky/myRosWorkspace/vcar_hunter/src/vcar_hunter/lite6_arm_control/realsense-ros/realsense2_camera/include/**",
+        "/home/wky/myRosWorkspace/vcar_scout/src/vcar_scout/scout_ros/scout_base/include/**",
+        "/home/wky/myRosWorkspace/vcar_scout/src/vcar_scout/scout_state_machine/include/**",
+        "/home/wky/myRosWorkspace/vcar_hunter/src/vcar_hunter/geometry2/tf2_bullet/include/**",
+        "/home/wky/myRosWorkspace/vcar_hunter/src/vcar_hunter/ugv_sdk/include/**",
+        "/home/wky/myRosWorkspace/arm_compliant_control/src/Compliant-Control-and-Application/robots/universal_robot/Universal_Robots_ROS_Driver/ur_calibration/include/**",
+        "/home/wky/myRosWorkspace/arm_compliant_control/src/Compliant-Control-and-Application/robots/universal_robot/Universal_Robots_ROS_Driver/ur_robot_driver/include/**",
+        "/home/wky/myRosWorkspace/vcar_hunter/src/vcar_hunter/velodyne/velodyne_pcl/include/**",
+        "/home/wky/myRosWorkspace/vcar_hunter/src/vcar_hunter/lite6_arm_control/visual_2D_location/include/**",
+        "/home/wky/myRosWorkspace/vcar_hunter/src/vcar_hunter/path_plan/waypoint_follower/include/**",
+        "/home/wky/myRosWorkspace/vcar_xavier/src/vcar_xavier/zed-ros-wrapper/zed-ros-interfaces/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
