@@ -1,0 +1,8 @@
+prefix=/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/devel
+
+Name: arm_planning
+Description: Description of arm_planning
+Version: 0.0.0
+Cflags: -I/home/wky/myWorkspace/kitchen_robot/src/arm_planning/include
+Libs: -L${prefix}/lib -ltest
+Requires: roscpp sensor_msgs std_msgs pcl_msgs
