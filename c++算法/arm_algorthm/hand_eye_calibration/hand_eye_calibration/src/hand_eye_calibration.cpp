@@ -2,7 +2,13 @@
 #include <iostream>
 
 /*
-解算AX=XB方程步骤:
+眼在手方程:
+1.由位姿关系可以得到: Tend_to_base1 * Tcam_to_hand * Tobj_to_cam1 = Tend_to_base2 * Tcam_to_hand * Tobj_to_cam2
+2.由上式可以得到: (Tend_to_base2的逆）* Tend_to_base1 * Tcam_to_hand = Tcam_to_hand * Tobj_to_cam2 * (Tobj_to_cam1的逆)
+3.令(Tend_to_base2的逆）* Tend_to_base1 = Ta，Tobj_to_cam2 * (Tobj_to_cam1的逆) = Tb，Tcam_to_hand = Tx，可以得到方程:TaTx=TxTb
+4.该方程可以把位置部分提取出来，另变换矩阵X、A、B的位置向量分别为Px、Pa、Pb，旋转矩阵分别为X、A、B，可以得到:A*Px+Pa = X*Pb+Px
+5.可以得到X的位置部分为:
+解算旋转矩阵部分的AX=XB方程步骤:
 1.方程两边同乘旋转矩阵B的旋转向量Vb得到: AX*Vb=λ*X*Vb
 2.由于X*Vb也是一个向量，并且旋转矩阵A也存在旋转轴，假设A的旋转向量为Va，可以得到: X*Vb=λ*Va
 3.只要求出三个相互独立的Vb就可以得到: X*[Vb1、Vb2、Vb3] = λ*[Va1、Va2、Va3] ==> X = λ*[Va1、Va2、Va3]*（[Vb1、Vb2、Vb3]的逆）
@@ -10,6 +16,7 @@
 class AXEqualXBSolution
 {
     AXEqualXBSolution(){}
+
     Eigen::Matrix3d getX(std::array<Eigen::Matrix3d, 3>& A, std::array<Eigen::Matrix3d, 3>& B)
     {
         Eigen::Matrix3d X;
