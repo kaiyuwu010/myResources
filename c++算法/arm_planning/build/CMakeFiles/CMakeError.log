@@ -1,0 +1,1566 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_91461/fast && /usr/bin/make -f CMakeFiles/cmTC_91461.dir/build.make CMakeFiles/cmTC_91461.dir/build
+make[1]: Entering directory '/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_91461.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_91461.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_91461
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_91461.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_91461.dir/src.c.o  -o cmTC_91461 
+/usr/bin/ld: CMakeFiles/cmTC_91461.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_91461.dir/build.make:87: cmTC_91461] Error 1
+make[1]: Leaving directory '/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_91461/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_97a7b/fast && /usr/bin/make -f CMakeFiles/cmTC_97a7b.dir/build.make CMakeFiles/cmTC_97a7b.dir/build
+make[1]: Entering directory '/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_97a7b.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_97a7b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_97a7b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_97a7b.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_97a7b.dir/CheckFunctionExists.c.o  -o cmTC_97a7b  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_97a7b.dir/build.make:87: cmTC_97a7b] Error 1
+make[1]: Leaving directory '/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_97a7b/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_67c07/fast && /usr/bin/make -f CMakeFiles/cmTC_67c07.dir/build.make CMakeFiles/cmTC_67c07.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_67c07.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_67c07.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_67c07
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_67c07.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_67c07.dir/src.c.o  -o cmTC_67c07 
+/usr/bin/ld: CMakeFiles/cmTC_67c07.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_67c07.dir/build.make:87：cmTC_67c07] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_67c07/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2e4de/fast && /usr/bin/make -f CMakeFiles/cmTC_2e4de.dir/build.make CMakeFiles/cmTC_2e4de.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_2e4de.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_2e4de.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2e4de
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2e4de.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_2e4de.dir/CheckFunctionExists.c.o  -o cmTC_2e4de  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_2e4de.dir/build.make:87：cmTC_2e4de] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_2e4de/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_575a5/fast && /usr/bin/make -f CMakeFiles/cmTC_575a5.dir/build.make CMakeFiles/cmTC_575a5.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_575a5.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_575a5.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_575a5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_575a5.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_575a5.dir/src.c.o  -o cmTC_575a5 
+/usr/bin/ld: CMakeFiles/cmTC_575a5.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_575a5.dir/build.make:87：cmTC_575a5] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_575a5/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_df224/fast && /usr/bin/make -f CMakeFiles/cmTC_df224.dir/build.make CMakeFiles/cmTC_df224.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_df224.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_df224.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_df224
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_df224.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_df224.dir/CheckFunctionExists.c.o  -o cmTC_df224  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_df224.dir/build.make:87：cmTC_df224] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_df224/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_02b2a/fast && /usr/bin/make -f CMakeFiles/cmTC_02b2a.dir/build.make CMakeFiles/cmTC_02b2a.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_02b2a.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_02b2a.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_02b2a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_02b2a.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_02b2a.dir/src.c.o  -o cmTC_02b2a 
+/usr/bin/ld: CMakeFiles/cmTC_02b2a.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_02b2a.dir/build.make:87：cmTC_02b2a] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_02b2a/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_35f6c/fast && /usr/bin/make -f CMakeFiles/cmTC_35f6c.dir/build.make CMakeFiles/cmTC_35f6c.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_35f6c.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_35f6c.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_35f6c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_35f6c.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_35f6c.dir/CheckFunctionExists.c.o  -o cmTC_35f6c  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_35f6c.dir/build.make:87：cmTC_35f6c] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_35f6c/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2d33f/fast && /usr/bin/make -f CMakeFiles/cmTC_2d33f.dir/build.make CMakeFiles/cmTC_2d33f.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_2d33f.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_2d33f.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_2d33f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2d33f.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_2d33f.dir/src.c.o  -o cmTC_2d33f 
+/usr/bin/ld: CMakeFiles/cmTC_2d33f.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_2d33f.dir/build.make:87：cmTC_2d33f] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_2d33f/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_eccfd/fast && /usr/bin/make -f CMakeFiles/cmTC_eccfd.dir/build.make CMakeFiles/cmTC_eccfd.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_eccfd.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_eccfd.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_eccfd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eccfd.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_eccfd.dir/CheckFunctionExists.c.o  -o cmTC_eccfd  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_eccfd.dir/build.make:87：cmTC_eccfd] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_eccfd/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_696e5/fast && /usr/bin/make -f CMakeFiles/cmTC_696e5.dir/build.make CMakeFiles/cmTC_696e5.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_696e5.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_696e5.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_696e5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_696e5.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_696e5.dir/src.c.o  -o cmTC_696e5 
+/usr/bin/ld: CMakeFiles/cmTC_696e5.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_696e5.dir/build.make:87：cmTC_696e5] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_696e5/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_aaffe/fast && /usr/bin/make -f CMakeFiles/cmTC_aaffe.dir/build.make CMakeFiles/cmTC_aaffe.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_aaffe.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_aaffe.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_aaffe
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aaffe.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_aaffe.dir/CheckFunctionExists.c.o  -o cmTC_aaffe  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_aaffe.dir/build.make:87：cmTC_aaffe] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_aaffe/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0a6b1/fast && /usr/bin/make -f CMakeFiles/cmTC_0a6b1.dir/build.make CMakeFiles/cmTC_0a6b1.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_0a6b1.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_0a6b1.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_0a6b1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0a6b1.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_0a6b1.dir/src.c.o  -o cmTC_0a6b1 
+/usr/bin/ld: CMakeFiles/cmTC_0a6b1.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_0a6b1.dir/build.make:87：cmTC_0a6b1] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_0a6b1/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7ccc6/fast && /usr/bin/make -f CMakeFiles/cmTC_7ccc6.dir/build.make CMakeFiles/cmTC_7ccc6.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_7ccc6.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_7ccc6.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_7ccc6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7ccc6.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_7ccc6.dir/CheckFunctionExists.c.o  -o cmTC_7ccc6  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_7ccc6.dir/build.make:87：cmTC_7ccc6] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_7ccc6/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e149f/fast && /usr/bin/make -f CMakeFiles/cmTC_e149f.dir/build.make CMakeFiles/cmTC_e149f.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_e149f.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_e149f.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_e149f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e149f.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_e149f.dir/src.c.o  -o cmTC_e149f 
+/usr/bin/ld: CMakeFiles/cmTC_e149f.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_e149f.dir/build.make:87：cmTC_e149f] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_e149f/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_13d83/fast && /usr/bin/make -f CMakeFiles/cmTC_13d83.dir/build.make CMakeFiles/cmTC_13d83.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_13d83.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_13d83.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_13d83
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13d83.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_13d83.dir/CheckFunctionExists.c.o  -o cmTC_13d83  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_13d83.dir/build.make:87：cmTC_13d83] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_13d83/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_61f00/fast && /usr/bin/make -f CMakeFiles/cmTC_61f00.dir/build.make CMakeFiles/cmTC_61f00.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_61f00.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_61f00.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_61f00
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_61f00.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_61f00.dir/src.c.o  -o cmTC_61f00 
+/usr/bin/ld: CMakeFiles/cmTC_61f00.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_61f00.dir/build.make:87：cmTC_61f00] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_61f00/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_51690/fast && /usr/bin/make -f CMakeFiles/cmTC_51690.dir/build.make CMakeFiles/cmTC_51690.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_51690.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_51690.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_51690
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_51690.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_51690.dir/CheckFunctionExists.c.o  -o cmTC_51690  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_51690.dir/build.make:87：cmTC_51690] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_51690/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5c6f6/fast && /usr/bin/make -f CMakeFiles/cmTC_5c6f6.dir/build.make CMakeFiles/cmTC_5c6f6.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_5c6f6.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_5c6f6.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_5c6f6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5c6f6.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_5c6f6.dir/src.c.o  -o cmTC_5c6f6 
+/usr/bin/ld: CMakeFiles/cmTC_5c6f6.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_5c6f6.dir/build.make:87：cmTC_5c6f6] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_5c6f6/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7c68e/fast && /usr/bin/make -f CMakeFiles/cmTC_7c68e.dir/build.make CMakeFiles/cmTC_7c68e.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_7c68e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_7c68e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_7c68e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7c68e.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_7c68e.dir/CheckFunctionExists.c.o  -o cmTC_7c68e  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_7c68e.dir/build.make:87：cmTC_7c68e] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_7c68e/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5fb65/fast && /usr/bin/make -f CMakeFiles/cmTC_5fb65.dir/build.make CMakeFiles/cmTC_5fb65.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_5fb65.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_5fb65.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_5fb65
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5fb65.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_5fb65.dir/src.c.o  -o cmTC_5fb65 
+/usr/bin/ld: CMakeFiles/cmTC_5fb65.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_5fb65.dir/build.make:87：cmTC_5fb65] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_5fb65/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_305eb/fast && /usr/bin/make -f CMakeFiles/cmTC_305eb.dir/build.make CMakeFiles/cmTC_305eb.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_305eb.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_305eb.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_305eb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_305eb.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_305eb.dir/CheckFunctionExists.c.o  -o cmTC_305eb  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_305eb.dir/build.make:87：cmTC_305eb] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_305eb/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_1a77d/fast && /usr/bin/make -f CMakeFiles/cmTC_1a77d.dir/build.make CMakeFiles/cmTC_1a77d.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_1a77d.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_1a77d.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_1a77d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1a77d.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_1a77d.dir/src.c.o  -o cmTC_1a77d 
+/usr/bin/ld: CMakeFiles/cmTC_1a77d.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_1a77d.dir/build.make:87：cmTC_1a77d] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_1a77d/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7cf02/fast && /usr/bin/make -f CMakeFiles/cmTC_7cf02.dir/build.make CMakeFiles/cmTC_7cf02.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_7cf02.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_7cf02.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_7cf02
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7cf02.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_7cf02.dir/CheckFunctionExists.c.o  -o cmTC_7cf02  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_7cf02.dir/build.make:87：cmTC_7cf02] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_7cf02/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_3bdb9/fast && /usr/bin/make -f CMakeFiles/cmTC_3bdb9.dir/build.make CMakeFiles/cmTC_3bdb9.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_3bdb9.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_3bdb9.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_3bdb9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3bdb9.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_3bdb9.dir/src.c.o  -o cmTC_3bdb9 
+/usr/bin/ld: CMakeFiles/cmTC_3bdb9.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_3bdb9.dir/build.make:87：cmTC_3bdb9] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_3bdb9/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2b3d4/fast && /usr/bin/make -f CMakeFiles/cmTC_2b3d4.dir/build.make CMakeFiles/cmTC_2b3d4.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_2b3d4.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_2b3d4.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2b3d4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2b3d4.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_2b3d4.dir/CheckFunctionExists.c.o  -o cmTC_2b3d4  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_2b3d4.dir/build.make:87：cmTC_2b3d4] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_2b3d4/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b5979/fast && /usr/bin/make -f CMakeFiles/cmTC_b5979.dir/build.make CMakeFiles/cmTC_b5979.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_b5979.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_b5979.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_b5979
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b5979.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_b5979.dir/src.c.o  -o cmTC_b5979 
+/usr/bin/ld: CMakeFiles/cmTC_b5979.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_b5979.dir/build.make:87：cmTC_b5979] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_b5979/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_dfe1b/fast && /usr/bin/make -f CMakeFiles/cmTC_dfe1b.dir/build.make CMakeFiles/cmTC_dfe1b.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_dfe1b.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_dfe1b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_dfe1b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dfe1b.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_dfe1b.dir/CheckFunctionExists.c.o  -o cmTC_dfe1b  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_dfe1b.dir/build.make:87：cmTC_dfe1b] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_dfe1b/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_280a4/fast && /usr/bin/make -f CMakeFiles/cmTC_280a4.dir/build.make CMakeFiles/cmTC_280a4.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_280a4.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_280a4.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_280a4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_280a4.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_280a4.dir/src.c.o  -o cmTC_280a4 
+/usr/bin/ld: CMakeFiles/cmTC_280a4.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_280a4.dir/build.make:87：cmTC_280a4] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_280a4/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c8103/fast && /usr/bin/make -f CMakeFiles/cmTC_c8103.dir/build.make CMakeFiles/cmTC_c8103.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_c8103.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_c8103.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c8103
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c8103.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_c8103.dir/CheckFunctionExists.c.o  -o cmTC_c8103  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_c8103.dir/build.make:87：cmTC_c8103] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_c8103/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5dd0d/fast && /usr/bin/make -f CMakeFiles/cmTC_5dd0d.dir/build.make CMakeFiles/cmTC_5dd0d.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_5dd0d.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_5dd0d.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_5dd0d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5dd0d.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_5dd0d.dir/src.c.o  -o cmTC_5dd0d 
+/usr/bin/ld: CMakeFiles/cmTC_5dd0d.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_5dd0d.dir/build.make:87：cmTC_5dd0d] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_5dd0d/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_766af/fast && /usr/bin/make -f CMakeFiles/cmTC_766af.dir/build.make CMakeFiles/cmTC_766af.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_766af.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_766af.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_766af
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_766af.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_766af.dir/CheckFunctionExists.c.o  -o cmTC_766af  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_766af.dir/build.make:87：cmTC_766af] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_766af/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_fb985/fast && /usr/bin/make -f CMakeFiles/cmTC_fb985.dir/build.make CMakeFiles/cmTC_fb985.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_fb985.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_fb985.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_fb985
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fb985.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_fb985.dir/src.c.o  -o cmTC_fb985 
+/usr/bin/ld: CMakeFiles/cmTC_fb985.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_fb985.dir/build.make:87：cmTC_fb985] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_fb985/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_05b19/fast && /usr/bin/make -f CMakeFiles/cmTC_05b19.dir/build.make CMakeFiles/cmTC_05b19.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_05b19.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_05b19.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_05b19
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_05b19.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_05b19.dir/CheckFunctionExists.c.o  -o cmTC_05b19  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_05b19.dir/build.make:87：cmTC_05b19] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_05b19/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5fc7f/fast && /usr/bin/make -f CMakeFiles/cmTC_5fc7f.dir/build.make CMakeFiles/cmTC_5fc7f.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_5fc7f.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_5fc7f.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_5fc7f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5fc7f.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_5fc7f.dir/src.c.o  -o cmTC_5fc7f 
+/usr/bin/ld: CMakeFiles/cmTC_5fc7f.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_5fc7f.dir/build.make:87：cmTC_5fc7f] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_5fc7f/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_3c7be/fast && /usr/bin/make -f CMakeFiles/cmTC_3c7be.dir/build.make CMakeFiles/cmTC_3c7be.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_3c7be.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_3c7be.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3c7be
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3c7be.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_3c7be.dir/CheckFunctionExists.c.o  -o cmTC_3c7be  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_3c7be.dir/build.make:87：cmTC_3c7be] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_3c7be/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d8d4e/fast && /usr/bin/make -f CMakeFiles/cmTC_d8d4e.dir/build.make CMakeFiles/cmTC_d8d4e.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_d8d4e.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_d8d4e.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_d8d4e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d8d4e.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_d8d4e.dir/src.c.o  -o cmTC_d8d4e 
+/usr/bin/ld: CMakeFiles/cmTC_d8d4e.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_d8d4e.dir/build.make:87：cmTC_d8d4e] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_d8d4e/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ffa33/fast && /usr/bin/make -f CMakeFiles/cmTC_ffa33.dir/build.make CMakeFiles/cmTC_ffa33.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_ffa33.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_ffa33.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ffa33
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ffa33.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_ffa33.dir/CheckFunctionExists.c.o  -o cmTC_ffa33  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_ffa33.dir/build.make:87：cmTC_ffa33] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_ffa33/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_dd1cb/fast && /usr/bin/make -f CMakeFiles/cmTC_dd1cb.dir/build.make CMakeFiles/cmTC_dd1cb.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_dd1cb.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_dd1cb.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_dd1cb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dd1cb.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_dd1cb.dir/src.c.o  -o cmTC_dd1cb 
+/usr/bin/ld: CMakeFiles/cmTC_dd1cb.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_dd1cb.dir/build.make:87：cmTC_dd1cb] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_dd1cb/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d3b61/fast && /usr/bin/make -f CMakeFiles/cmTC_d3b61.dir/build.make CMakeFiles/cmTC_d3b61.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_d3b61.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_d3b61.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d3b61
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d3b61.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_d3b61.dir/CheckFunctionExists.c.o  -o cmTC_d3b61  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_d3b61.dir/build.make:87：cmTC_d3b61] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_d3b61/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b2c05/fast && /usr/bin/make -f CMakeFiles/cmTC_b2c05.dir/build.make CMakeFiles/cmTC_b2c05.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_b2c05.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_b2c05.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_b2c05
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b2c05.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_b2c05.dir/src.c.o  -o cmTC_b2c05 
+/usr/bin/ld: CMakeFiles/cmTC_b2c05.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_b2c05.dir/build.make:87：cmTC_b2c05] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_b2c05/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6ed9a/fast && /usr/bin/make -f CMakeFiles/cmTC_6ed9a.dir/build.make CMakeFiles/cmTC_6ed9a.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_6ed9a.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_6ed9a.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6ed9a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6ed9a.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_6ed9a.dir/CheckFunctionExists.c.o  -o cmTC_6ed9a  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_6ed9a.dir/build.make:87：cmTC_6ed9a] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_6ed9a/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_22ff2/fast && /usr/bin/make -f CMakeFiles/cmTC_22ff2.dir/build.make CMakeFiles/cmTC_22ff2.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_22ff2.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_22ff2.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_22ff2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_22ff2.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_22ff2.dir/src.c.o  -o cmTC_22ff2 
+/usr/bin/ld: CMakeFiles/cmTC_22ff2.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_22ff2.dir/build.make:87：cmTC_22ff2] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_22ff2/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_25e07/fast && /usr/bin/make -f CMakeFiles/cmTC_25e07.dir/build.make CMakeFiles/cmTC_25e07.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_25e07.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_25e07.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_25e07
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_25e07.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_25e07.dir/CheckFunctionExists.c.o  -o cmTC_25e07  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_25e07.dir/build.make:87：cmTC_25e07] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_25e07/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_acbeb/fast && /usr/bin/make -f CMakeFiles/cmTC_acbeb.dir/build.make CMakeFiles/cmTC_acbeb.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_acbeb.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_acbeb.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_acbeb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_acbeb.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_acbeb.dir/src.c.o  -o cmTC_acbeb 
+/usr/bin/ld: CMakeFiles/cmTC_acbeb.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_acbeb.dir/build.make:87：cmTC_acbeb] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_acbeb/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_734d1/fast && /usr/bin/make -f CMakeFiles/cmTC_734d1.dir/build.make CMakeFiles/cmTC_734d1.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_734d1.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_734d1.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_734d1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_734d1.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_734d1.dir/CheckFunctionExists.c.o  -o cmTC_734d1  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_734d1.dir/build.make:87：cmTC_734d1] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_734d1/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4717a/fast && /usr/bin/make -f CMakeFiles/cmTC_4717a.dir/build.make CMakeFiles/cmTC_4717a.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_4717a.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_4717a.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_4717a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4717a.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_4717a.dir/src.c.o  -o cmTC_4717a 
+/usr/bin/ld: CMakeFiles/cmTC_4717a.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_4717a.dir/build.make:87：cmTC_4717a] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_4717a/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_3f832/fast && /usr/bin/make -f CMakeFiles/cmTC_3f832.dir/build.make CMakeFiles/cmTC_3f832.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_3f832.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_3f832.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3f832
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3f832.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_3f832.dir/CheckFunctionExists.c.o  -o cmTC_3f832  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_3f832.dir/build.make:87：cmTC_3f832] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_3f832/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d66ad/fast && /usr/bin/make -f CMakeFiles/cmTC_d66ad.dir/build.make CMakeFiles/cmTC_d66ad.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_d66ad.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_d66ad.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_d66ad
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d66ad.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_d66ad.dir/src.c.o  -o cmTC_d66ad 
+/usr/bin/ld: CMakeFiles/cmTC_d66ad.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_d66ad.dir/build.make:87：cmTC_d66ad] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_d66ad/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d5a6e/fast && /usr/bin/make -f CMakeFiles/cmTC_d5a6e.dir/build.make CMakeFiles/cmTC_d5a6e.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_d5a6e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_d5a6e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d5a6e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d5a6e.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_d5a6e.dir/CheckFunctionExists.c.o  -o cmTC_d5a6e  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_d5a6e.dir/build.make:87：cmTC_d5a6e] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_d5a6e/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_00e4a/fast && /usr/bin/make -f CMakeFiles/cmTC_00e4a.dir/build.make CMakeFiles/cmTC_00e4a.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_00e4a.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_00e4a.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_00e4a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_00e4a.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_00e4a.dir/src.c.o  -o cmTC_00e4a 
+/usr/bin/ld: CMakeFiles/cmTC_00e4a.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_00e4a.dir/build.make:87：cmTC_00e4a] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_00e4a/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_27f2f/fast && /usr/bin/make -f CMakeFiles/cmTC_27f2f.dir/build.make CMakeFiles/cmTC_27f2f.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_27f2f.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_27f2f.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_27f2f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_27f2f.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_27f2f.dir/CheckFunctionExists.c.o  -o cmTC_27f2f  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_27f2f.dir/build.make:87：cmTC_27f2f] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_27f2f/fast] 错误 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f04ca/fast && /usr/bin/make -f CMakeFiles/cmTC_f04ca.dir/build.make CMakeFiles/cmTC_f04ca.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_f04ca.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_f04ca.dir/src.c.o   -c /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_f04ca
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f04ca.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_f04ca.dir/src.c.o  -o cmTC_f04ca 
+/usr/bin/ld: CMakeFiles/cmTC_f04ca.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_f04ca.dir/build.make:87：cmTC_f04ca] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_f04ca/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_02137/fast && /usr/bin/make -f CMakeFiles/cmTC_02137.dir/build.make CMakeFiles/cmTC_02137.dir/build
+make[1]: 进入目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_02137.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_02137.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_02137
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_02137.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_02137.dir/CheckFunctionExists.c.o  -o cmTC_02137  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_02137.dir/build.make:87：cmTC_02137] 错误 1
+make[1]: 离开目录“/home/wky/myWorkspace/kitchen_robot/src/arm_planning/build/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_02137/fast] 错误 2
+
+
+
