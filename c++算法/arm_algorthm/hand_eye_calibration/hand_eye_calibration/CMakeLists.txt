@@ -4,7 +4,7 @@ project(hand_eye_calibration)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
 )
-set(Eigen3_DIR /home/wky/myLib/eigen-3.4.01/eigen-install-folder/share/eigen3/cmake)
+set(Eigen3_DIR /home/wky/myLib/Eigen3.4.90/Eigen3.4.90-install-folder/share/eigen3/cmake)
 find_package(Eigen3 REQUIRED)
  
 include_directories(
