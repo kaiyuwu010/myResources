@@ -91,18 +91,19 @@ public:
 
 private:
     std::vector<Point> points_;
-    int input_points_num_ = -1;                                             //输入点的数量
-    std::vector<Point> points_for_planning_;                                //要进行轨迹规划的路径点集NX6矩阵
-    std::vector<double> v0_;                                                //初始速度
-    std::vector<double> m0_;                                                //初始加速度
-    std::vector<double> vn_;                                                //终止速度
-    std::vector<double> mn_;                                                //终止加速度
-    double rad_time_ratio_;                                                 //多少弧度每秒
-    std::vector<double> time_interval_;                                     //时间间隔
-    std::vector<std::vector<std::vector<double>>> cubic_spline_parameter_;  // a, b, c, d三次样条曲线参数.
-    std::vector<std::vector<double>> quartic_spline_parameter_;             // a, b, c, d四次样条曲线参数.
-    std::vector<std::vector<double>> quintic_spline_parameter0_;            // a, b, c, d五次样条第一条曲线参数.
-    std::vector<std::vector<double>> quintic_spline_parameter1_;            // a, b, c, d五次样条第二条曲线参数.
+    int input_points_num_ = -1;                                                      //输入点的数量
+    std::vector<Point> points_for_planning_;                                         //要进行轨迹规划的路径点集NX6矩阵
+    std::vector<double> v0_;                                                         //初始速度
+    std::vector<double> m0_;                                                         //初始加速度
+    std::vector<double> vn_;                                                         //终止速度
+    std::vector<double> mn_;                                                         //终止加速度
+    double rad_time_ratio_;                                                          //多少弧度每秒
+    std::vector<double> time_interval_;                                              //时间间隔
+    std::vector<std::vector<std::vector<double>>> cubic_spline_parameter_;           // a, b, c, d三次样条曲线参数.
+    std::vector<std::vector<double>> quartic_spline_parameter_;                      // a, b, c, d四次样条曲线参数.
+    std::vector<std::vector<std::vector<double>>> double_quartic_spline_parameter_;  // 双五次样条曲线参数.
+    std::vector<std::vector<double>> quintic_spline_parameter0_;                     // a, b, c, d五次样条第一条曲线参数.
+    std::vector<std::vector<double>> quintic_spline_parameter1_;                     // a, b, c, d五次样条第二条曲线参数.
 public:
     std::vector<CoordinatesWithTimeStamp> pos_list_;    //输出的位置序列
     std::vector<VelocitiesWithTimeStamp> vel_list_;     //输出的速度序列
@@ -120,6 +121,7 @@ public:
     bool initCubicSplineWithControlPoints();
     //多关节采样
     void quartic_spline_Interpolation(double time_diff);
+    void double_quartic_spline_Interpolation(double time_diff);
     void cubic_spline_Interpolation(double time_diff);
     void insertAllJointsCubicSpline(double time_diff);
 };

@@ -67,7 +67,7 @@ bool CubicSplinePlanning::initCubicSplineWithControlPoints()
     //给两个点用于规划时，采样五次多项式进行规划
     else if (input_points_num_ == 2)
     {
-        std::cout << "轨迹规划模块:用于轨迹规划的点数为2, 采样五次多项式进行规划!" << std::endl;
+        std::cout << "轨迹规划模块:用于轨迹规划的点数为2, 采用五次多项式进行规划!" << std::endl;
         time_interval_.clear();
         time_interval_.resize(1, 0);
         double interval, x1, x2;
@@ -93,10 +93,51 @@ bool CubicSplinePlanning::initCubicSplineWithControlPoints()
         }
         return true;
     }
-    //给三个点及以上用于规划时，采用三次多项式进行规划
+    //给三个点用于规划时，采用两个五次多项式进行规划
+    else if (input_points_num_ == 3)
+    {
+        std::cout << "轨迹规划模块:用于轨迹规划的点数为3, 采用两个五次多项式进行规划!" << std::endl;
+        time_interval_.clear();
+        time_interval_.resize(2, 0);
+        double interval, x1, x2;
+        //计算相邻点间的时间间隔
+        for (int i = 0; i < point_dimension_; i++)
+        {
+            for (int j = 0; j < 2; j++)
+            {
+                x1 = points_[j][i];
+                x2 = points_[j + 1][i];
+                interval = abs((x2 - x1) / rad_time_ratio_);
+                time_interval_[j] = std::max(time_interval_[j], interval);
+            }
+        }
+        //计算两个五次多项式参数，中间点速度设置为和加速度设置为两段的平均值
+        double_quartic_spline_parameter_.resize(2, std::vector<std::vector<double>>(point_dimension_, std::vector<double>(6, 0)));
+        for (int i = 0; i < point_dimension_; i++)
+        {
+            double rad_interval0 = points_[1][i] - points_[0][i];
+            double rad_interval1 = points_[2][i] - points_[1][i];
+            double mid_speed = (rad_interval0 / time_interval_[0] + rad_interval1 / time_interval_[1]) / 2.0;
+            double mid_acc = rad_interval0 / std::pow(time_interval_[0], 2) + rad_interval1 / std::pow(time_interval_[1], 2);
+            double_quartic_spline_parameter_[0][i][0] = points_[0][i];                                                                                                                                                          // a0
+            double_quartic_spline_parameter_[0][i][1] = v0_[i];                                                                                                                                                                 // a1
+            double_quartic_spline_parameter_[0][i][2] = 0.5 * m0_[i];                                                                                                                                                           // a2
+            double_quartic_spline_parameter_[0][i][3] = 0.5 * (20 * rad_interval0 - (8 * mid_speed + 12 * v0_[i]) * time_interval_[0] - (3 * m0_[i] - mid_acc) * pow(time_interval_[0], 2)) / pow(time_interval_[0], 3);        // a3
+            double_quartic_spline_parameter_[0][i][4] = 0.5 * (-30 * rad_interval0 + (14 * mid_speed + 16 * v0_[i]) * time_interval_[0] + (3 * m0_[i] - 2 * mid_acc) * pow(time_interval_[0], 2)) / pow(time_interval_[0], 4);  // a4
+            double_quartic_spline_parameter_[0][i][5] = 0.5 * (12 * rad_interval0 - 6 * (mid_speed + v0_[i]) * time_interval_[0] + (mid_acc - m0_[i]) * pow(time_interval_[0], 2)) / pow(time_interval_[0], 5);                 // a5
+            double_quartic_spline_parameter_[1][i][0] = points_[1][i];                                                                                                                                                          // a0
+            double_quartic_spline_parameter_[1][i][1] = mid_speed;                                                                                                                                                              // a1                                                                                                                                              // a1
+            double_quartic_spline_parameter_[1][i][2] = 0.5 * mid_acc;                                                                                                                                                          // a2
+            double_quartic_spline_parameter_[1][i][3] = 0.5 * (20 * rad_interval1 - (8 * vn_[i] + 12 * mid_speed) * time_interval_[1] - (3 * mid_acc - mn_[i]) * pow(time_interval_[1], 2)) / pow(time_interval_[1], 3);        // a3
+            double_quartic_spline_parameter_[1][i][4] = 0.5 * (-30 * rad_interval1 + (14 * vn_[i] + 16 * mid_speed) * time_interval_[1] + (3 * mid_acc - 2 * mn_[i]) * pow(time_interval_[1], 2)) / pow(time_interval_[1], 4);  // a4
+            double_quartic_spline_parameter_[1][i][5] = 0.5 * (12 * rad_interval1 - 6 * (vn_[i] + mid_speed) * time_interval_[1] + (mn_[i] - mid_acc) * pow(time_interval_[1], 2)) / pow(time_interval_[1], 5);                 // a5
+        }
+        return true;
+    }
+    //给四个点及以上用于规划时，采用三次多项式进行规划
     else
     {
-        std::cout << "轨迹规划模块:用于轨迹规划的点数大于等于3, 采样三次多项式进行规划!" << std::endl;
+        std::cout << "轨迹规划模块:用于轨迹规划的点数大于等于3, 采用三次多项式进行规划!" << std::endl;
         int num_of_points = points_.size();
         std::vector<double> vec(point_dimension_, 0);
         CubicSplinePlanning::Point control_point(vec);
@@ -110,16 +151,15 @@ bool CubicSplinePlanning::initCubicSplineWithControlPoints()
             points_for_planning_.push_back(points_[i]);
         }
         num_of_points = points_for_planning_.size();
-        // std::cout<<"轨迹规划模块:加上控制点后的点----------数量:
-        // "<<num_of_points<<std::endl; for(int i=0;
-        // i<points_for_planning_.size(); i++)
-        // {
-        // 	for(int j=0; j<6; j++)
-        // 	{
-        // 		std::cout<<points_for_planning_[i].point[j]<<" ";
-        // 	}
-        // 	std::cout<<std::endl;
-        // }
+        std::cout << "轨迹规划模块:加上控制点后的点----------数量: " << num_of_points << std::endl;
+        for (int i = 0; i < points_for_planning_.size(); i++)
+        {
+            for (int j = 0; j < 6; j++)
+            {
+                std::cout << points_for_planning_[i].point_[j] << " ";
+            }
+            std::cout << std::endl;
+        }
         std::vector<Eigen::MatrixXf> A(point_dimension_, Eigen::MatrixXf::Zero(num_of_points - 2, num_of_points - 2));
         std::vector<Eigen::MatrixXf> B(point_dimension_, Eigen::MatrixXf::Zero(num_of_points - 2, 1));
         std::vector<Eigen::MatrixXf> W(point_dimension_, Eigen::MatrixXf::Zero(num_of_points - 2, 1));  //待求的加速度向量
@@ -165,7 +205,7 @@ bool CubicSplinePlanning::initCubicSplineWithControlPoints()
                 {
                     A[j](0, 0) = 2 * time_interval_[1] + time_interval_[0] * (3 + time_interval_[0] / time_interval_[1]);
                     A[j](0, 1) = time_interval_[1];
-                    B[j](i, 0) = 6 * ((points_for_planning_[2][j] - points_for_planning_[0][j]) / time_interval_[1] - (time_interval_[0] / time_interval_[1] + 1) * v0_[j] - (0.5 * time_interval_[0] + 0.3333 * std::pow(time_interval_[0], 2) / time_interval_[1]) * m0_[j]);
+                    B[j](i, 0) = 6 * ((points_for_planning_[2][j] - points_for_planning_[0][j]) / time_interval_[1] - (time_interval_[0] / time_interval_[1] + 1) * v0_[j] - (0.5 * time_interval_[0] + 1.0 / 3.0 * std::pow(time_interval_[0], 2) / time_interval_[1]) * m0_[j]);
                 }
             }
             else if (i == 1)
@@ -175,7 +215,7 @@ bool CubicSplinePlanning::initCubicSplineWithControlPoints()
                     A[j](1, 0) = time_interval_[1] - std::pow(time_interval_[0], 2) / time_interval_[1];
                     A[j](1, 1) = 2 * (time_interval_[1] + time_interval_[2]);
                     A[j](1, 2) = time_interval_[2];
-                    B[j](i, 0) = 6 * ((points_for_planning_[3][j] - points_for_planning_[2][j]) / time_interval_[2] - (points_for_planning_[2][j] - points_for_planning_[0][j]) / time_interval_[1] + (time_interval_[0] / time_interval_[1]) * v0_[j] - 0.3333 * (std::pow(time_interval_[0], 2) / time_interval_[1]) * m0_[j]);
+                    B[j](i, 0) = 6 * ((points_for_planning_[3][j] - points_for_planning_[2][j]) / time_interval_[2] - (points_for_planning_[2][j] - points_for_planning_[0][j]) / time_interval_[1] + (time_interval_[0] / time_interval_[1]) * v0_[j] + 1.0 / 3.0 * (std::pow(time_interval_[0], 2) / time_interval_[1]) * m0_[j]);
                 }
             }
             else if (i == num_of_points - 4)
@@ -187,8 +227,7 @@ bool CubicSplinePlanning::initCubicSplineWithControlPoints()
                     A[j](num_of_points - 4, num_of_points - 3) = time_interval_[num_of_points - 3] - std::pow(time_interval_[num_of_points - 2], 2) / time_interval_[num_of_points - 3];
                     B[j](i, 0) = 6 * ((points_for_planning_[num_of_points - 1][j] - points_for_planning_[num_of_points - 3][j]) / time_interval_[num_of_points - 3] -
                                       (points_for_planning_[num_of_points - 3][j] - points_for_planning_[num_of_points - 4][j]) / time_interval_[num_of_points - 4] -
-                                      (time_interval_[num_of_points - 2] / time_interval_[num_of_points - 3]) * vn_[j] +
-                                      1 / 3 * (std::pow(time_interval_[num_of_points - 2], 2) / time_interval_[num_of_points - 3]) * mn_[j]);
+                                      (time_interval_[num_of_points - 2] / time_interval_[num_of_points - 3]) * vn_[j] + 1.0 / 3.0 * (std::pow(time_interval_[num_of_points - 2], 2) / time_interval_[num_of_points - 3]) * mn_[j]);
                 }
             }
             else if (i == num_of_points - 3)
@@ -199,7 +238,7 @@ bool CubicSplinePlanning::initCubicSplineWithControlPoints()
                     A[j](num_of_points - 3, num_of_points - 3) = 2 * time_interval_[num_of_points - 3] + time_interval_[num_of_points - 2] * (3 + time_interval_[num_of_points - 2] / time_interval_[num_of_points - 3]);
                     B[j](i, 0) = 6 * ((points_for_planning_[num_of_points - 3][j] - points_for_planning_[num_of_points - 1][j]) / time_interval_[num_of_points - 3] +
                                       (1 + time_interval_[num_of_points - 2] / time_interval_[num_of_points - 3]) * vn_[j] -
-                                      (0.5 * time_interval_[num_of_points - 2] + 0.3333 * (std::pow(time_interval_[num_of_points - 2], 2) / time_interval_[num_of_points - 3])) * mn_[j]);
+                                      (0.5 * time_interval_[num_of_points - 2] + 1.0 / 3.0 * (std::pow(time_interval_[num_of_points - 2], 2) / time_interval_[num_of_points - 3])) * mn_[j]);
                 }
             }
             else
@@ -226,6 +265,12 @@ bool CubicSplinePlanning::initCubicSplineWithControlPoints()
                 vector_acceleration[i][j] = W[j](i, 0);  // vector_acceleration是N X 6
             }
         }
+        std::cout << "轨迹规划模块:中间关节的加速度值:" << std::endl;
+        for (int i = 0; i < num_of_points - 2; i++)
+        {
+            std::cout << vector_acceleration[i][0] << " ";
+        }
+        std::cout << std::endl;
         //把控制点的值插入points_for_planning_
         for (int i = 0; i < point_dimension_; i++)
         {
@@ -275,14 +320,11 @@ bool CubicSplinePlanning::initCubicSplineWithControlPoints()
                 cubic_spline_parameter_[j][i] = cubic_spline_parameter_element;  // cubic_spline_parameter_是一个 6 X N 矩阵
             }
         }
-        // std::cout<<"轨迹规划模块:第一个关节的插入曲线的参数:"<<std::endl;
-        // for(int i=0; i<cubic_spline_parameter_[0].size(); i++)
-        // {
-        // 	std::cout<<cubic_spline_parameter_[0][i][0]<<"
-        // "<<cubic_spline_parameter_[0][i][1]<<"
-        // "<<cubic_spline_parameter_[0][i][2]<<"
-        // "<<cubic_spline_parameter_[0][i][3]<<std::endl;
-        // }
+        std::cout << "轨迹规划模块:第一个关节的插入曲线的参数:" << std::endl;
+        for (int i = 0; i < cubic_spline_parameter_[0].size(); i++)
+        {
+            std::cout << cubic_spline_parameter_[0][i][0] << ", " << cubic_spline_parameter_[0][i][1] << ", " << cubic_spline_parameter_[0][i][2] << ", " << cubic_spline_parameter_[0][i][3] << std::endl;
+        }
         return true;
     }
 }
@@ -350,7 +392,95 @@ void CubicSplinePlanning::quartic_spline_Interpolation(double time_diff)
     quartic_spline_parameter_.clear();
     return;
 }
-
+void CubicSplinePlanning::double_quartic_spline_Interpolation(double time_diff)
+{
+    CoordinatesWithTimeStamp angels_value_with_time(point_dimension_);
+    VelocitiesWithTimeStamp vels_value_with_time(point_dimension_);
+    AccelerationsWithTimeStamp accs_value_with_time(point_dimension_);
+    double time = 0;
+    double remainder = std::fmod((time_interval_[0] + time_interval_[1]), time_diff);
+    double steps_size_0 = std::floor((time_interval_[0]) / time_diff) + 1;
+    double steps_size_1 = std::floor((time_interval_[0] + time_interval_[1]) / time_diff) + 1 - steps_size_0;
+    for (int i = 0; i < steps_size_0; i++)
+    {
+        angels_value_with_time.time = time;
+        vels_value_with_time.time = time;
+        accs_value_with_time.time = time;
+        for (int j = 0; j < point_dimension_; j++)
+        {
+            //位置采样
+            double pos_each_step = double_quartic_spline_parameter_[0][j][0] + double_quartic_spline_parameter_[0][j][1] * time + double_quartic_spline_parameter_[0][j][2] * pow(time, 2) + double_quartic_spline_parameter_[0][j][3] * pow(time, 3) + double_quartic_spline_parameter_[0][j][4] * pow(time, 4) + double_quartic_spline_parameter_[0][j][5] * pow(time, 5);
+            angels_value_with_time.coordinates[j] = pos_each_step;
+            //速度采样
+            double vel_each_step = double_quartic_spline_parameter_[0][j][1] + 2 * double_quartic_spline_parameter_[0][j][2] * time + 3 * double_quartic_spline_parameter_[0][j][3] * pow((time), 2) + 4 * double_quartic_spline_parameter_[0][j][4] * pow((time), 3) + 5 * double_quartic_spline_parameter_[0][j][5] * pow((time), 4);
+            vels_value_with_time.velocities[j] = vel_each_step;
+            //加速度采样
+            double acc_each_step = 2 * double_quartic_spline_parameter_[0][j][2] + 6 * double_quartic_spline_parameter_[0][j][3] * time + 12 * double_quartic_spline_parameter_[0][j][4] * pow((time), 2) + 20 * double_quartic_spline_parameter_[0][j][5] * pow((time), 3);
+            accs_value_with_time.accelerations[j] = acc_each_step;
+        }
+        pos_list_.push_back(angels_value_with_time);
+        vel_list_.push_back(vels_value_with_time);
+        acc_list_.push_back(accs_value_with_time);
+        time += time_diff;
+    }
+    double segment_time = time - time_interval_[0];
+    for (int i = 0; i < steps_size_1; i++)
+    {
+        angels_value_with_time.time = time;
+        vels_value_with_time.time = time;
+        accs_value_with_time.time = time;
+        for (int j = 0; j < point_dimension_; j++)
+        {
+            //位置采样
+            double pos_each_step = double_quartic_spline_parameter_[1][j][0] + double_quartic_spline_parameter_[1][j][1] * segment_time + double_quartic_spline_parameter_[1][j][2] * pow(segment_time, 2) + double_quartic_spline_parameter_[1][j][3] * pow(segment_time, 3) + double_quartic_spline_parameter_[1][j][4] * pow(segment_time, 4) + double_quartic_spline_parameter_[1][j][5] * pow(segment_time, 5);
+            angels_value_with_time.coordinates[j] = pos_each_step;
+            //速度采样
+            double vel_each_step = double_quartic_spline_parameter_[1][j][1] + 2 * double_quartic_spline_parameter_[1][j][2] * segment_time + 3 * double_quartic_spline_parameter_[1][j][3] * pow((segment_time), 2) + 4 * double_quartic_spline_parameter_[1][j][4] * pow((segment_time), 3) + 5 * double_quartic_spline_parameter_[1][j][5] * pow((segment_time), 4);
+            vels_value_with_time.velocities[j] = vel_each_step;
+            //加速度采样
+            double acc_each_step = 2 * double_quartic_spline_parameter_[1][j][2] + 6 * double_quartic_spline_parameter_[1][j][3] * segment_time + 12 * double_quartic_spline_parameter_[1][j][4] * pow((segment_time), 2) + 20 * double_quartic_spline_parameter_[1][j][5] * pow((segment_time), 3);
+            accs_value_with_time.accelerations[j] = acc_each_step;
+        }
+        pos_list_.push_back(angels_value_with_time);
+        vel_list_.push_back(vels_value_with_time);
+        acc_list_.push_back(accs_value_with_time);
+        segment_time += time_diff;
+        time += time_diff;
+    }
+    time = time_interval_[0] + time_interval_[1];
+    angels_value_with_time.time = time;
+    vels_value_with_time.time = time;
+    accs_value_with_time.time = time;
+    for (int j = 0; j < point_dimension_; j++)
+    {
+        //位置采样
+        double pos_each_step = double_quartic_spline_parameter_[1][j][0] + double_quartic_spline_parameter_[1][j][1] * time_interval_[1] + double_quartic_spline_parameter_[1][j][2] * pow(time_interval_[1], 2) + double_quartic_spline_parameter_[1][j][3] * pow(time_interval_[1], 3) + double_quartic_spline_parameter_[1][j][4] * pow(time_interval_[1], 4) + double_quartic_spline_parameter_[1][j][5] * pow(time_interval_[1], 5);
+        angels_value_with_time.coordinates[j] = pos_each_step;
+        //速度采样
+        double vel_each_step = double_quartic_spline_parameter_[1][j][1] + 2 * double_quartic_spline_parameter_[1][j][2] * time_interval_[1] + 3 * double_quartic_spline_parameter_[1][j][3] * pow((time_interval_[1]), 2) + 4 * double_quartic_spline_parameter_[1][j][4] * pow((time_interval_[1]), 3) + 5 * double_quartic_spline_parameter_[1][j][5] * pow((time_interval_[1]), 4);
+        vels_value_with_time.velocities[j] = vel_each_step;
+        //加速度采样
+        double acc_each_step = 2 * double_quartic_spline_parameter_[1][j][2] + 6 * double_quartic_spline_parameter_[1][j][3] * time_interval_[1] + 12 * double_quartic_spline_parameter_[1][j][4] * pow((time_interval_[1]), 2) + 20 * double_quartic_spline_parameter_[1][j][5] * pow((time_interval_[1]), 3);
+        accs_value_with_time.accelerations[j] = acc_each_step;
+    }
+    if (remainder > 0.5 * time_diff || time_interval_[0] < time_diff)
+    {
+        pos_list_.push_back(angels_value_with_time);
+        vel_list_.push_back(vels_value_with_time);
+        acc_list_.push_back(accs_value_with_time);
+    }
+    else
+    {
+        pos_list_.pop_back();
+        vel_list_.pop_back();
+        acc_list_.pop_back();
+        pos_list_.push_back(angels_value_with_time);
+        vel_list_.push_back(vels_value_with_time);
+        acc_list_.push_back(accs_value_with_time);
+    }
+    double_quartic_spline_parameter_.clear();
+    return;
+}
 void CubicSplinePlanning::cubic_spline_Interpolation(double time_diff)
 {
     CoordinatesWithTimeStamp angels_value_with_time(point_dimension_);
@@ -455,7 +585,12 @@ void CubicSplinePlanning::insertAllJointsCubicSpline(double time_diff)  //返回
     {
         quartic_spline_Interpolation(time_diff);
     }
-    //输入3个及以上点进行三次多项式采样
+    //输入点为3进行双五次多项式采样
+    else if (input_points_num_ == 3)
+    {
+        double_quartic_spline_Interpolation(time_diff);
+    }
+    //输入4个及以上点进行三次多项式采样
     else
     {
         cubic_spline_Interpolation(time_diff);
